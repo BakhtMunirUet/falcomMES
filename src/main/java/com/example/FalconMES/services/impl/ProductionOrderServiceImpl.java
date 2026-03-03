@@ -30,7 +30,6 @@ import java.util.UUID;
 public class ProductionOrderServiceImpl implements ProductionOrderService {
 
     private final ProductionOrderRepository productionOrderRepository;
-    private final MachineRepository machineRepository;
     private final ProductionOrderMapper productionOrderMapper;
     private final MessageProducer messageProducer;
 
@@ -45,57 +44,6 @@ public class ProductionOrderServiceImpl implements ProductionOrderService {
         order.setStatus(String.valueOf(OrderStatusType.PENDING));
 
         order.getMachineOrders().forEach(mo -> mo.setProductionOrder(order));
-
-
-//        ProductionOrderEntity order;
-//
-//        if (dto.id() == null){
-//            order = productionOrderMapper.dtoToEntity(dto);
-//            order.setOrderNumber(String.valueOf(UUID.randomUUID()));
-//            order.setStatus(String.valueOf(OrderStatusType.PENDING));
-//        }else {
-//           order = productionOrderRepository.findById(dto.id())
-//                   .orElseThrow(() -> new RuntimeException("Could not found order"));
-//        }
-//
-//
-//
-//        List<MachineEntity> machines = machineRepository.findByType(dto.machineType());
-//
-//        if (machines.isEmpty()) {
-//            throw new RuntimeException("No active machines available for assignment!");
-//        }
-//
-//        int totalQty = dto.quantity();
-//        int perMachineQty = totalQty / machines.size();
-//        int remaining = totalQty;
-//
-//        List<MachineOrderEntity> moList = new ArrayList<>();
-//
-//        for (int i = 0; i < machines.size(); i++) {
-//            MachineEntity machine = machines.get(i);
-//
-//            int qty = (i == machines.size() - 1) ? remaining : perMachineQty;
-//            remaining -= qty;
-//
-//            MachineOrderEntity mo = MachineOrderEntity.builder()
-//                    .machine(machine)
-//                    .productionOrder(order)
-//                    .quantity(qty)
-//                    .status(String.valueOf(OrderStatusType.PENDING))
-//                    .build();
-//
-//            moList.add(mo);
-//
-//        }
-//
-//
-//        if(order.getMachineOrders() == null){
-//            order.setMachineOrders(moList);
-//        }else {
-//            order.getMachineOrders().addAll(moList);
-//        }
-
 
         var responseDto = productionOrderMapper.entityToDto(
                 productionOrderRepository.save(order));

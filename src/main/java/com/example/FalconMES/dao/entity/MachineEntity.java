@@ -31,9 +31,6 @@ public class MachineEntity extends BaseEntity {
     @Column(name = "TYPE")
     private String type;
 
-    @Column(name = "STATUS")
-    private String status = "IDLE";
-
     // One Machine has many MachineOrders
     @OneToMany(mappedBy = "machine", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL, orphanRemoval = true)

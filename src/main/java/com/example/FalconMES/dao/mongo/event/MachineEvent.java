@@ -22,13 +22,21 @@ public class MachineEvent {
     @JsonProperty
     private String id;
     @JsonProperty
-    private String productionOrderId;
+    private Long productionOrderId;
     @JsonProperty
     private String orderNumber;
     @JsonProperty
-    private String machineId;
+    private int currentStage;
     @JsonProperty
-    private String status;
+    private int totalStages;
+    @JsonProperty
+    private String orderStatus;
+    @JsonProperty
+    private Long machineOrderId;
+    @JsonProperty
+    private Long machineId;
+    @JsonProperty
+    private String machineOrderStatus;
     @JsonProperty
     private String description;
     @JsonProperty

@@ -7,15 +7,8 @@ import lombok.Builder;
 public record UpdateMachineOrderStatusDto(
 
         Long productionOrderId,
-        Long machineId,
-
         Long machineOrderId,
-
-        String status,
-
-        String orderStatus
-
-
+        String status
 
 ) {
 }

@@ -10,8 +10,6 @@ public record MachineDto(
 
         String name,
 
-        String type,
-
-        String status
+        String type
 ) {
 }

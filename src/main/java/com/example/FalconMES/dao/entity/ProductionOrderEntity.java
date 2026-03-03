@@ -37,6 +37,12 @@ public class ProductionOrderEntity extends BaseEntity {
     @Column(name = "QUANTITY", nullable = false)
     private Integer quantity;
 
+    @Column(name = "TOTAL_STAGES", nullable = false)
+    private Integer totalStages;
+
+    @Column(name = "CURRENT_STAGE", nullable = false)
+    private Integer currentStage;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "ORDER_TYPE", nullable = false)
     private ProductionOrderType orderType;

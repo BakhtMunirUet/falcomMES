@@ -24,6 +24,9 @@ public record ProductionOrderDto(
         @Min(value = 1, message = "Quantity must be at least 1")
         Integer quantity,
 
+        Integer totalStages,
+        Integer currentStage,
+
         @NotNull(message = "Order type is required")
         ProductionOrderType orderType,
 

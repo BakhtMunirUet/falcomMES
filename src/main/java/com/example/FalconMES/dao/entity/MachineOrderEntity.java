@@ -27,6 +27,9 @@ public class MachineOrderEntity extends BaseEntity {
     @Column(name = "QUANTITY")
     private int quantity;
 
+    @Column(name = "STAGE")
+    private int stage;
+
     @Column(name = "STATUS")
     private String status = "PENDING";
 

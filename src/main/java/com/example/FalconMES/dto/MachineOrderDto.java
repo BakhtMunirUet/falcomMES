@@ -8,6 +8,8 @@ public record MachineOrderDto(
         Long id,
         int quantity,
 
+        int stage,
+
         String status,
 
         MachineDto machine
